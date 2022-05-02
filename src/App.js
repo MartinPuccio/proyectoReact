@@ -2,7 +2,7 @@ import './App.css';
 import NavBar from './components/navBar/NavBar';
 import Saludo from './components/navBar/Saludo';
 import Contador from './components/counter/Contador';
-import ItemsListContainer from './components/items/ItemsListContainer';
+import ItemsDetailContainer from './components/items/ItemsDetailContainer';
 
 function App() {
 
@@ -15,7 +15,7 @@ let stock = 5
       <NavBar/>
       <Saludo name="shoesStore"/>
       <Contador valorInicial={valorInicial} stock={stock}/>
-      <ItemsListContainer/>
+      <ItemsDetailContainer />
     </div>
   );
 }
