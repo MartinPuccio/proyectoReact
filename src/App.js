@@ -1,8 +1,9 @@
-import './App.css';
+import ItemListContainer from './components/items/ItemListContainer';
 import NavBar from './components/navBar/NavBar';
-import Saludo from './components/navBar/Saludo';
-import Contador from './components/counter/Contador';
+import Title from './components/navBar/Title';
+//import Contador from './components/counter/Contador';
 import ItemsDetailContainer from './components/items/ItemsDetailContainer';
+import {BrowserRouter , Routes, Route} from "react-router-dom"
 
 function App() {
 
@@ -11,12 +12,17 @@ let stock = 5
 
 
   return (
-    <div className="App">
-      <NavBar/>
-      <Saludo name="shoesStore"/>
-      <Contador valorInicial={valorInicial} stock={stock}/>
-      <ItemsDetailContainer />
-    </div>
+      <BrowserRouter>
+        <NavBar/>
+         <Routes>
+          <Route path='/title' element={<Title name="clothingStore"/>}/>
+          <Route path='/productos' element={<ItemListContainer/>} />
+          <Route path='/productos/:itemId' element={<ItemsDetailContainer/>}/>
+        </Routes>
+        
+        {/* <Contador valorInicial={valorInicial} stock={stock}/> */}
+      
+      </BrowserRouter>
   );
 }
 

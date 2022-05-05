@@ -1,8 +1,10 @@
 import { useState , useEffect } from "react"
-
+import { useParams } from "react-router-dom"
 import ItemsDetail from './ItemsDetail'
 
 const ItemsDetailContainer = () => {
+
+const {itemId} = useParams()
 
 const [products, setProducts] = useState([])
 
@@ -15,20 +17,18 @@ const dataFetch = () => {
     const URL = "https://fakestoreapi.com/products"
     
     fetch(URL)
-    .then (response => {
-      console.log(response);
-      return response.json()
-    })
+    .then (response => response.json())
     .then (data => {
-      console.log(data);
-    setProducts(data)
+      const product = data.find(prod => prod.id === +itemId)
+      console.log('producto' + product.id + 'itemid: ' + itemId);
+      setProducts(product)
     })
 
 }  
     return (
     <div>
-      {products.map( product => <ItemsDetail key={product.id} name={product.title}
-      precio={product.price} img={product.image} />)}
+      <ItemsDetail key={products.id} name={products.title}
+      precio={products.price} img={products.image} description={products.description}/>
     </div>
   )
 }

@@ -1,4 +1,5 @@
 import { useState } from "react"
+import "./contador.css"
 
 const Contador = (props) => {
 const { valorInicial , stock } = props;
@@ -23,10 +24,11 @@ const { valorInicial , stock } = props;
 
   return (
     <>
-    <div> contador </div>
+    <div className="count">
     <button onClick={restarContador}> - </button>
     <strong> {contador} </strong>
     <button onClick={aumentarContador}> + </button>
+    </div>
     </>
   )
 }
