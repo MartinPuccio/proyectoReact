@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
+import "./card.css";
 
 const Item = (props)=>{
     const {item} = props;
@@ -9,11 +10,10 @@ const Item = (props)=>{
       <div className="card-body">
         <h2 class="card-title">
           {item.title}
-          <div className="badge badge-secondary">NEW</div>
         </h2>
         <div className="card-actions justify-end">
-          <div className="badge badge-outline">{`${item.price} USD`}</div> 
-          <Link to={`/productos/${item.id}`} className="badge badge-outline">Details</Link>
+          <div className="btn btn-active btn-primary">{`${item.price} USD`}</div> 
+          <Link to={`/productos/${item.id}`} className="btn btn-info">Details</Link>
         </div>
       </div>
     </div>

@@ -1,6 +1,9 @@
+import "./title.css"
+
+
 const Title = (props) => {
   return (
-    <h1 className="text-4xl font-bold">Bienvenidos a {props.name}</h1>
+    <h1 className="titleHome">Bienvenidos a {props.name}</h1>
   )
 }
 

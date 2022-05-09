@@ -1,23 +1,26 @@
-import { Link, useParams } from 'react-router-dom';
-import './Card.css';
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import ItemCount from "./ItemCount";
+
 
 const ItemsDetail = (props) => {
+  const [hideCount, sethideCount] =useState(false);
 
-  
+  const initial = 1;
+  let stock = 5;
 
-  const {name, precio , img, description} = props;
+  const buyButtonHandler =()=>{
+    sethideCount(true);
+  }
+
     return (
-    <div className="card w-96 bg-base-100 shadow-xl cardContainer">
-      <figure><img src={`${img}`} alt={name} height='250' width='200' /></figure> 
+    <div className="card w-96 bg-base-100 shadow-xl">
+      <figure><img src={`${props.img}`} alt={props.name} height='250' width='200' /></figure> 
       <div className="card-body">
-        <h2 class="card-title">
-          {name}
-          <div className="badge badge-secondary">NEW</div>
-        </h2>
-        <p>{description}</p>
+        <p>{props.description}</p>
         <div className="card-actions justify-end">
-          <div className="badge badge-outline">{`${precio} USD`}</div>
-          <button className="badge badge-outline">Comprar</button>
+          <button className="btn btn-lg">{!hideCount && <ItemCount initial={initial} stock={stock} onAdd={buyButtonHandler}/>}</button>
+          {hideCount && <Link className="btn btn-lg" to="/navBar">Terminar Compra</Link>}
         </div>
       </div>
     </div>
