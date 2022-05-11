@@ -1,10 +1,17 @@
 import { useState } from "react";
+import { useCartContext } from "../context/CartContext";
+import { useAppContext } from "../context/AppContext";
 
 
 const ItemCount = (props) => {
-  const { initial, stock, onAdd} = props;
+  const { initial, stock, onAdd, id} = props;
 
   const [count, setCount] = useState(initial);
+
+  
+  const {addToCart} = useCartContext()
+  const {products} = useAppContext()
+
 
   const addCount = () => {
     let hasStock = stock - count;
@@ -19,6 +26,17 @@ const ItemCount = (props) => {
     }
   };
 
+  const handleClick = (id, cantidad) => {
+    const findProduct = products.find((prod) => prod.id === id)
+
+    if (!findProduct) {
+      alert("Error")
+      return
+    }
+
+    addToCart(findProduct, cantidad)
+    onAdd(count)
+  }
   return (
     <>
     <div className={props.className}>
@@ -27,7 +45,7 @@ const ItemCount = (props) => {
       <button onClick={addCount}>+</button>
     </div>
     <div>
-      <button type="button" onClick={onAdd}>Add to cart</button>
+      <button type="button" onClick={() => handleClick(id, count)}>Add to cart</button>
     </div>
     </>
   );

@@ -20,7 +20,6 @@ const dataFetch = () => {
     .then (response => response.json())
     .then (data => {
       const product = data.find(prod => prod.id === +itemId)
-      console.log('producto' + product.id + 'itemid: ' + itemId);
       setProducts(product)
     })
 
@@ -28,7 +27,7 @@ const dataFetch = () => {
     return (
     <div>
       <ItemsDetail key={products.id} name={products.title}
-      precio={products.price} img={products.image} description={products.description}/>
+      precio={products.price} img={products.image} description={products.description} id={products.id}/>
     </div>
   )
 }

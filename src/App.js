@@ -3,11 +3,15 @@ import NavBar from './components/navBar/NavBar';
 import Title from './components/navBar/Title';
 import ItemsDetailContainer from './components/items/ItemsDetailContainer';
 import {BrowserRouter , Routes, Route} from "react-router-dom"
+import CartContextProvider from './components/context/CartContext';
+import AppContextProvider from './components/context/AppContext';
 
 
 function App() {
 
   return (
+  <AppContextProvider>   
+    <CartContextProvider>
       <BrowserRouter>
         <NavBar/>
          <Routes>
@@ -16,6 +20,8 @@ function App() {
           <Route path='/productos/:itemId' element={<ItemsDetailContainer/>}/>
         </Routes> 
       </BrowserRouter>
+    </CartContextProvider>
+  </AppContextProvider> 
   );
 }
 

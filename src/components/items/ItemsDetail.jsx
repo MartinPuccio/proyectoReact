@@ -9,8 +9,9 @@ const ItemsDetail = (props) => {
   const initial = 1;
   let stock = 5;
 
-  const buyButtonHandler =()=>{
+  const buyButtonHandler =(count)=>{
     sethideCount(true);
+    console.log(count);
   }
 
     return (
@@ -19,7 +20,7 @@ const ItemsDetail = (props) => {
       <div className="card-body">
         <p>{props.description}</p>
         <div className="card-actions justify-end">
-          <button className="btn btn-lg">{!hideCount && <ItemCount initial={initial} stock={stock} onAdd={buyButtonHandler}/>}</button>
+          <button className="btn btn-lg">{!hideCount && <ItemCount initial={initial} stock={stock} onAdd={buyButtonHandler} id={props.id}/>}</button>
           {hideCount && <Link className="btn btn-lg" to="/navBar">Terminar Compra</Link>}
         </div>
       </div>
