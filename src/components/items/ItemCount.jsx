@@ -34,17 +34,21 @@ const ItemCount = (props) => {
       return
     }
 
+    const total = findProduct.price * cantidad
+    findProduct.total = total
+
     addToCart(findProduct, cantidad)
     onAdd(count)
   }
+
   return (
     <>
-    <div className={props.className}>
+    <div className="btn btn-lg">
       <button onClick={lessCount}>-</button>
       <strong>{count}</strong>
       <button onClick={addCount}>+</button>
     </div>
-    <div>
+    <div className="btn btn-lg">
       <button type="button" onClick={() => handleClick(id, count)}>Add to cart</button>
     </div>
     </>

@@ -1,7 +1,10 @@
 import CartWidge from "./CartWidge"
 import { Link } from "react-router-dom"
+import { useCartContext } from "../context/CartContext"
 
 const NavBar = () => {
+  const{ cart } = useCartContext()
+  const hayCart = cart.length > 0;
   return (
     <div>
      
@@ -20,7 +23,7 @@ const NavBar = () => {
         <div className="hidden sm:block sm:ml-6">
           <div className="flex space-x-4">
             
-            <Link to="/title" className="text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Home</Link>
+            <Link to="/" className="text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Home</Link>
 
             <Link to="/productos" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Shop</Link>
 
@@ -32,8 +35,9 @@ const NavBar = () => {
           </div>
         </div>
       </div>
-      <CartWidge/>
+      {hayCart && 
       <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+        <CartWidge/>
         <div className="ml-3 relative">
           <div>
             <button type="button" className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
@@ -41,7 +45,7 @@ const NavBar = () => {
             </button>
           </div> 
         </div>
-      </div>
+      </div>}
     </div>
   </div>
 </nav>

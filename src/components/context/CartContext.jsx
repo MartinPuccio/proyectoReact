@@ -1,55 +1,66 @@
-import React, {createContext, useContext, useState} from 'react'
+import { createContext, useContext, useState } from "react";
 
-const CartContext = createContext()
+const CartContext = createContext();
 
-export const useCartContext = () => useContext(CartContext)
+export const useCartContext = () => useContext(CartContext);
 
-const CartContextProvider = (props) => {
-
-    const [cart , setCart] = useState([])
-    //buscar si ya existe el producto en el carrito
-    const isInCart = (id) => cart.find(prod => prod.id === id)
-    // agregar item al carrito 
-    const addToCart = (producto, cantidad) => {
-        
-        const newCart = [...cart]
-        
-        const productoEnCart = isInCart(producto.id)
-        
-        if (productoEnCart) {
-            const numeroDeMiProdcutoRepetido = newCart.findIndex(prod => prod.id === productoEnCart.id )
-            newCart[numeroDeMiProdcutoRepetido].quantity += cantidad 
-            setCart(newCart)
-            return
-        }
-        producto.quantity = cantidad 
-        setCart([...newCart, producto])
-    }
+const CartContextProvider =(porps)=>{
     
-    // eliminar del carrito
-    const deleteFromCart =(producto)=>{
-        const newCart = [...cart]
-        const productoEnCart = isInCart(producto.id)
-        if (!productoEnCart) {
-            return;   
+    const [cart, setCart] = useState([]);
+
+    const isInCart =(id)=> cart.find(prod => prod.id === id)
+
+    const addToCart =(product, quant)=>{
+        const newCart = [...cart];
+        
+        const productIsInCart = isInCart(product.id)
+        
+        
+        if (productIsInCart) {
+            newCart[newCart.findIndex(prod => prod.id === productIsInCart.id)].quantity += quant;
+            
+            setCart(newCart);
+            return;
         }
         
-        const deleteProduct = newCart.filter(product => product.id !== producto.id)
-        setCart(deleteProduct)
+        product.quantity = quant;
+        
+        setCart([...newCart, product])
     }
     
-    const deleteCart = () => {
-        setCart([])
+    const deleteFromCart =(product, quant)=> {
+        const newCart = [...cart];
+        
+        const productIsInCart = isInCart(product.id);
+
+
+        if (productIsInCart && (productIsInCart.quantity > 1)) {
+            newCart[newCart.findIndex(prod => prod.id === productIsInCart.id)].quantity -= quant;
+            setCart(newCart);
+            return;
+        }
+
+        if (!productIsInCart) {
+            return;
+        }
+
+        const deleteProdcut = newCart.filter((prod)=> prod.id !== product.id);
+
+        setCart(deleteProdcut);
     }
+
+    const deletCart =()=> setCart([]);
+
     console.log(cart);
-    
+
     return <CartContext.Provider value={{
-            cart,    
-            isInCart,
-            addToCart,
-            deleteFromCart,
-            deleteCart,
-    }}>{props.children}</CartContext.Provider>
+        cart,
+        addToCart,
+        deleteFromCart,
+        setCart,
+        deletCart
+    }}>{porps.children}</CartContext.Provider>
+
 }
 
 export default CartContextProvider

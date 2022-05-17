@@ -1,7 +1,11 @@
 .cardContainer{
+    box-shadow: 0 0 20px 10px black;
     display: flex;
-    display: inline-block;
     margin: 2rem;
     justify-content: center;
     align-items: center;
+    padding: 2rem;
+    border-radius: 100px;
+    background-color: white;
+    margin: 2rem;
 }

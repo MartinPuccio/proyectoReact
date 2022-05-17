@@ -5,7 +5,7 @@ import "./card.css";
 const Item = (props)=>{
     const {item} = props;
     return <Fragment>
-    <div className="card w-96 bg-base-100 shadow-xl cardContainer">
+    <div className="cardContainer">
       <figure><img src={`${item.image}`} alt={item.title} height='250' width='200' /></figure> 
       <div className="card-body">
         <h2 class="card-title">
