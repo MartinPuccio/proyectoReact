@@ -1,0 +1,27 @@
+.containerItem {
+    width: 60vw;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+@media (max-width: 1250px) {
+    .containerItem {
+        width: 80vw;
+    }
+    
+  }
+@media (max-width: 1000px) {
+    .containerItem {
+        width: 100vw;
+    }
+    
+  }
+
+  .centerSpinner {
+      width: 100vw;
+      height: 100vh;
+      margin: 0 auto;
+  }

@@ -1,0 +1,97 @@
+.header {
+    border-bottom-right-radius:12px ;
+    border-bottom-left-radius: 12px;
+    margin: 0 .2rem 0 .2rem;
+    box-shadow: 0px 0px 7px rgb(0, 0, 0);
+    background-color: #ff00e6;
+    height: 10vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navbar {
+    position: relative;
+    left: 10rem;
+    width: 34vw;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+.navbar a, 
+.logo a{
+    border-radius: 7px;
+    font-weight: bolder;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #fff;
+}
+
+.button-container {
+    color: #ecdeb1;
+    margin-top: 6vh;
+    width: 20%;
+    height: 10vh;
+}
+
+.icon {
+    position: relative;
+    z-index: 10;
+    left: 120px;
+    top: -25px;
+    cursor: auto;
+}
+
+.button {
+    box-shadow: 0px 0px 7px #ff00e6;
+    border: none;
+    border-radius: 7px;
+    color: #ecdeb1;
+    min-width: 5rem;
+    margin-right: 3rem;
+    background: #ff00e6;
+}
+
+.titleCart {
+    position: relative;
+    z-index: 999;
+    color: #ecdeb1;
+    background: #ff00e6;
+    border-radius: 7px;
+    box-shadow: 0px 0px 7px #ff00e6;
+    margin-left: 2.5rem;
+    font-size: 1.2rem;
+    width: 100px;
+    height: 30px;
+}
+
+.badge {
+    position: relative;
+    z-index: 1;
+    top: -155px;
+    left: 78px;
+    color: #ecdeb1;
+    box-shadow: 0px 0px 7px #ff00e6;
+    border: 1px solid #ff00e6;
+    font-weight: 600;
+    padding: .2rem;
+    font-size: 1rem;
+    height: auto;
+    background-color: #ff00e6;
+    border-radius: 25px;
+}
+
+.logo a:hover,
+.navbar a:hover,
+.titleCart:hover,
+.button:hover {
+    color: rgb(221, 203, 184);
+} 
+
+@media (max-width: 1000px) {
+    .containerItem {
+        width: 100vw;
+    }
+    
+  }
