@@ -71,7 +71,7 @@
 }
 
 .productPriceBtn .priceDetail {
-    box-shadow: 1px 1px 10px 1px #ff00e6;
+    box-shadow: 1px 1px 10px 1px #000000;
     border-radius: 20px;
     position: absolute;
     background-color: #fff;
@@ -112,7 +112,7 @@
 }
 
 .productPriceBtn .btnDetail:hover {
-    background-color: #9419ac;
+    background-color: #000000;
 }  
 
 .countDetial {
@@ -121,7 +121,7 @@
   text-align: center;
   width: 80px;
   height: 25px;
-  box-shadow: 1px 1px 10px 1px #ff00e6;
+  box-shadow: 1px 1px 10px 1px #000000;
   border-radius: 20px;
   position: absolute;
   left: 200px;

@@ -1,5 +1,5 @@
 .itemBox {
-    box-shadow: 0px 0px 20px 5px #ff00e6;
+    box-shadow: 0px 0px 20px 5px #000000;
     border-radius: 20px;
     text-align: center;
     height: 350px;
@@ -8,7 +8,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    border: 2px solid #ff00e6;
+    border: 2px solid #000000;
     margin: .5rem;
     margin-top: 5rem;
     padding: .4rem;
